@@ -367,21 +367,6 @@ class SendSms():
         except:
             print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! --> boyner.com")
             
-
-    #watsons.com.tr
-    def Watsons(self):
-        try:
-            url = "https://www.watsons.com.tr:443/api/v2/wtctr/phone-verification/phonenumber?lang=tr_TR"
-            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0", "Accept": "application/json", "Accept-Language": "tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3", "Accept-Encoding": "gzip, deflate", "Referer": "https://www.watsons.com.tr/register", "Content-Type": "application/json;charset=UTF-8", "X-Dtpc": "11$208941126_619h150vEGITDHTLQJAGKPKRHUIMTILDMPAWJTOL-0e0", "Origin": "https://www.watsons.com.tr", "Dnt": "1", "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-origin", "Pragma": "no-cache", "Cache-Control": "no-cache", "Te": "trailers"}
-            json={"countryCode": "TR", "phoneNumber": self.phone}
-            r = requests.post(url, headers=headers, json=json)
-            if r.status_code == 201:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! --> watsons.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! --> watsons.com.tr")
             
     
     #buyursungelsin.com
@@ -515,21 +500,6 @@ class SendSms():
         except:
             print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! --> api.terrapizza.com.tr")
             
-            
-    #ipragaz.com.tr
-    def IpraGaz(self):
-        try:
-            url = "https://ipapp.ipragaz.com.tr:443/ipragazmobile/v2/ipragaz-b2c/ipragaz-customer/mobile-register-otp"
-            json={"birthDate": "31/08/1975", "carPlate": "31 ABC 31", "name": "Memati Bas", "otp": "", "phoneNumber": str(self.phone), "playerId": ""}
-            r = requests.post(url, json=json)
-            if (r.json()["phoneNumber"]) == str(self.phone):
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! --> ipapp.ipragaz.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! --> ipapp.ipragaz.com.tr")
-            
              
     #mogazmobilapinew.aygaz.com.tr
     def Mogaz(self):
@@ -545,19 +515,7 @@ class SendSms():
         except:
             print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! --> mogazmobilapinew.aygaz.com.tr")
             
-            
-    #ipragaz.com.tr
-    def GoMobile(self):
-        try:
-            r = requests.get(f"https://gomobilapp.ipragaz.com.tr:443/api/v1/0/authentication/sms/send?phone={self.phone}&isRegistered=true")
-            if (r.json()["data"]["success"]) == True:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! --> gomobilapp.ipragaz.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! --> gomobilapp.ipragaz.com.tr")
-            
+
     
     #petrolofisi.com.tr
     def PetrolOfisi(self):
